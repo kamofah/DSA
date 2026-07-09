@@ -1,11 +1,9 @@
-import math
-
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         xStr = str(x)
         start = 0
         end = len(xStr) - 1
-        for i in range(math.ceil(len(xStr) / 2)):
+        for i in range((len(xStr) + 1) // 2):
             if xStr[start] != xStr[end]:
                 return False
             start += 1
