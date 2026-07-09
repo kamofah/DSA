@@ -4,7 +4,6 @@ class Solution:
         for i in s.lower():
             if i.isalnum():
                 alphaS += i
-        
 
         start = 0
         end = len(alphaS) - 1
