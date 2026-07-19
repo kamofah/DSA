@@ -3,7 +3,7 @@ class Solution:
         previous = {}
 
         for index, num in enumerate(nums):
-            if nums[index] in previous and abs(index - previous[num]) <= k:
+            if nums[index] in previous and index - previous[num] <= k:
                 return True
 
             previous[nums[index]] = index
