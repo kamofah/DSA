@@ -1,6 +1,5 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        pivots = []
         prefix_sum = [nums[0]]
 
         for i in range(1, len(nums)):
@@ -11,7 +10,6 @@ class Solution:
             right = 0 if i == len(nums) - 1 else prefix_sum[len(nums) - 1] - prefix_sum[i]
 
             if left == right:
-                pivots.append(i)
+                return i
 
-
-        return -1 if len(pivots) == 0 else pivots[0]
+        return -1
