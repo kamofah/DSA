@@ -9,10 +9,10 @@ class Solution:
             return None
 
         slow = fast = head
-        prev = ListNode(None, head)
+        prev = None
 
         while fast and fast.next:
-            prev = prev.next
+            prev = slow
             slow = slow.next
             fast = fast.next.next
         
