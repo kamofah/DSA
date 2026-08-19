@@ -8,29 +8,27 @@ class Solution:
         maximum_sum = 0
         slow = fast = head
 
-        # Find start of second half
+        #  Get to the middle
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
 
-        # Reverse second half
+        # Reverse the middle
         current = slow
         prev = None
-
         while current:
             next_node = current.next
             current.next = prev
             prev = current
             current = next_node
 
-        # Compare twin nodes
-        start = head
-        second = prev
-
-        while second:
-            maximum_sum = max(maximum_sum, start.val + second.val)
-            start = start.next
-            second = second.next
+        # Calculate maximum_sum with prev and slow
+        slow = head
+        while prev:
+            maximum_sum = max(maximum_sum, slow.val + prev.val)
+            slow = slow.next
+            prev = prev.next
 
         return maximum_sum
+
         
