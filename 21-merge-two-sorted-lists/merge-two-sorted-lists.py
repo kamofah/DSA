@@ -20,10 +20,7 @@ class Solution:
             
             current = current.next
 
-        if l1_pointer:
-            current.next = l1_pointer
-        else:
-            current.next = l2_pointer
+        current.next = l1_pointer if l1_pointer else l2_pointer
 
         return dummy.next
         
