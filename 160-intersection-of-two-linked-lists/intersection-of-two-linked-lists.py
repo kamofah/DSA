@@ -4,19 +4,17 @@
 #         self.val = x
 #         self.next = None
 
-from collections import Counter
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        node_counter = Counter()
-        
+        visited = set()
+
         while headA:
-            node_counter[headA] += 1
+            visited.add(headA)
             headA = headA.next
 
         while headB:
-            node_counter[headB] += 1
-            if node_counter[headB] > 1:
+            if headB in visited:
                 return headB
             headB = headB.next
 
-        return None
+        return None        
