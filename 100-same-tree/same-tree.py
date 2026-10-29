@@ -4,8 +4,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
-
 class Solution:
     def isSameTree(self, p: TreeNode | None, q: TreeNode | None) -> bool:
         if p is None and q is None:
