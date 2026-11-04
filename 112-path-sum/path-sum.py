@@ -15,4 +15,4 @@ class Solution:
         left = self.hasPathSum(root.left, targetSum - root.val)
         right = self.hasPathSum(root.right, targetSum - root.val)
 
-        return True and left or True and right
+        return left or right
