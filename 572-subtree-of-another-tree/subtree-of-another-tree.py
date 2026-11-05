@@ -6,28 +6,31 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: TreeNode | None, subRoot: TreeNode | None) -> bool:
+        if subRoot is None:
+            return True
+
         if root is None:
             return False
 
-        if self.dfs(root) == self.dfs(subRoot):
+        if self.isSameTree(root, subRoot):
             return True
 
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        return (
+            self.isSubtree(root.left, subRoot)
+            or self.isSubtree(root.right, subRoot)
+        )
 
-    def dfs(self, root):
-        stack = [root]
-        visited = []
+    def isSameTree(self, p, q):
+        if p is None and q is None:
+            return True
 
-        while stack:
-            current = stack.pop()
+        if p is None or q is None:
+            return False
 
-            if current is None:
-                visited.append(None)
-                continue
+        if p.val != q.val:
+            return False
 
-            visited.append(current.val)
-
-            stack.append(current.right)
-            stack.append(current.left)
-
-        return visited
+        return (
+            self.isSameTree(p.left, q.left)
+            and self.isSameTree(p.right, q.right)
+        )
